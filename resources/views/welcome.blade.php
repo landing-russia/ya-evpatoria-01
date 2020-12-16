@@ -28,8 +28,8 @@
                 </div>
                 <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div class="flex-shrink-0 flex items-center">
-                        <img class="block lg:hidden h-6 w-auto pt-1" src="/img/Я-Евпатория!.svg" alt="" />
-                        <img class="hidden lg:block h-7 w-auto pt-1" src="/img/Я-Евпатория!.svg" alt="" />
+                        <img class="block lg:hidden h-10 w-auto" src="/img/Я-Евпатория!.svg" alt="" />
+                        <img class="hidden lg:block h-12 w-auto" src="/img/Я-Евпатория!.svg" alt="" />
                     </div>
                     <div class="hidden sm:ml-6 sm:flex">
                         <a href="#"

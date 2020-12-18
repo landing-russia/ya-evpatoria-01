@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
-                    <button id="themeSwitch"
+                    <button id="switchTheme"
                         class="hidden sm:block mr-2 p-1 border-2 border-transparent text-amber-500 rounded-full hover:text-amber-600 focus:outline-none focus:text-amber-600 focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out">
                         <svg class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
@@ -107,27 +107,6 @@
             </div>
         </div>
     </nav>
-    <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
-                '(prefers-color-scheme: dark)').matches)) {
-            document.querySelector('html').classList.add('dark')
-        } else {
-            document.querySelector('html').classList.remove('dark')
-        }
-
-
-        document.getElementById('themeSwitch').addEventListener('click', function () {
-            let htmlClasses = document.querySelector('html').classList;
-            if (localStorage.theme == 'dark') {
-                htmlClasses.remove('dark');
-                localStorage.removeItem('theme');
-            } else {
-                htmlClasses.add('dark');
-                localStorage.theme = 'dark';
-            }
-        });
-
-    </script>
 </body>
 
 </html>

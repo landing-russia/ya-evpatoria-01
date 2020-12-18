@@ -10,13 +10,13 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
-<body class="antialiased bg-gray-100 font-sans">
-    <nav x-data="{ open: false }" class="bg-white shadow">
+<body class="antialiased bg-gray-100 dark:bg-gray-800 font-sans">
+    <nav x-data="{ open: false }" class="bg-white dark:bg-gray-900 shadow">
         <div class="max-w-full mx-auto px-2 sm:px-6 lg:px-8">
-            <div class="relative flex justify-between h-16">
-                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <div class="relative flex justify-between h-16 lg:h-18">
+                <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
                     <button @click="open = !open"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-600 transition duration-150 ease-in-out">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path :class="{'hidden': open, 'inline-flex': !open }" class="inline-flex"
                                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -26,36 +26,44 @@
                         </svg>
                     </button>
                 </div>
-                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex-1 flex items-center justify-center md:items-stretch md:justify-start">
                     <div class="flex-shrink-0 flex items-center">
                         <img class="block lg:hidden h-10 w-auto" src="/img/Я-Евпатория!.svg" alt="" />
                         <img class="hidden lg:block h-12 w-auto" src="/img/Я-Евпатория!.svg" alt="" />
                     </div>
-                    <div class="hidden sm:ml-6 sm:flex">
+                    <div class="hidden md:ml-6 md:flex md:items-center lg:ml-12">
                         <a href="#"
-                            class="inline-flex items-center px-1 pt-1 border-b-2 border-indigo-500 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">
-                            Dashboard
+                            class="ml-3 block rounded font-semibold text-white bg-amber-600 text-sm px-3 py-1 lg:text-base lg:px-4 lg:py-2 transition duration-150 ease-in-out">
+                            Афиша
                         </a>
                         <a href="#"
-                            class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            Team
+                            class="ml-3 block rounded font-semibold text-gray-900 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 text-sm px-3 py-1 lg:text-base lg:px-4 lg:py-2 transition duration-150 ease-in-out">
+                            Экскурсии
                         </a>
                         <a href="#"
-                            class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            Projects
+                            class="ml-3 block rounded font-semibold text-gray-900 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 text-sm px-3 py-1 lg:text-base lg:px-4 lg:py-2 transition duration-150 ease-in-out">
+                            Проживание
                         </a>
                         <a href="#"
-                            class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            Calendar
+                            class="ml-3 block rounded font-semibold text-gray-900 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 text-sm px-3 py-1 lg:text-base lg:px-4 lg:py-2 transition duration-150 ease-in-out">
+                            Питание
                         </a>
                     </div>
                 </div>
-                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+                    <button id="themeSwitch"
+                        class="hidden sm:block mr-2 p-1 border-2 border-transparent text-amber-500 rounded-full hover:text-amber-600 focus:outline-none focus:text-amber-600 focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out">
+                        <svg class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
                     <button
-                        class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100 transition duration-150 ease-in-out">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        class="hidden sm:block p-1 border-2 border-transparent text-gray-500 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                         </svg>
                     </button>
                     <div @click.away="open = false" class="ml-3 relative" x-data="{ open: false }">
@@ -74,34 +82,52 @@
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95"
                             class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
-                            <div class="py-1 rounded-md bg-white shadow-xs">
+                            <div
+                                class="py-1 rounded-md bg-white dark:bg-gray-800 border border-gray-200  dark:border-gray-700 shadow-xs">
                                 <a href="#"
-                                    class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Your
-                                    Profile</a>
+                                    class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Профиль</a>
                                 <a href="#"
-                                    class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Settings</a>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Sign
-                                    out</a>
+                                    class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Выйти</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div :class="{'block': open, 'hidden': !open}" class="hidden sm:hidden">
+        <div :class="{'block': open, 'hidden': !open}" class="hidden md:hidden">
             <div class="pt-2 pb-4">
                 <a href="#"
-                    class="block pl-3 pr-4 py-2 border-l-4 border-indigo-500 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out">Dashboard</a>
+                    class="block pl-3 pr-4 py-2 border-l-4 border-indigo-500 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out">Афиша</a>
                 <a href="#"
-                    class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Team</a>
+                    class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Экскурсии</a>
                 <a href="#"
-                    class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Projects</a>
+                    class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Проживание</a>
                 <a href="#"
-                    class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Calendar</a>
+                    class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Питание</a>
             </div>
         </div>
     </nav>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.querySelector('html').classList.add('dark')
+        } else {
+            document.querySelector('html').classList.remove('dark')
+        }
+
+
+        document.getElementById('themeSwitch').addEventListener('click', function () {
+            let htmlClasses = document.querySelector('html').classList;
+            if (localStorage.theme == 'dark') {
+                htmlClasses.remove('dark');
+                localStorage.removeItem('theme');
+            } else {
+                htmlClasses.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+    </script>
 </body>
 
 </html>

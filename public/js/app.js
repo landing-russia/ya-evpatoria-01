@@ -21282,7 +21282,21 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+//     document.querySelector('html').classList.add('dark')
+//   } else {
+//     document.querySelector('html').classList.remove('dark')
+//   }
+// document.getElementById('themeSwitch').addEventListener('click', function() {
+//     let htmlClasses = document.querySelector('html').classList;
+//     if(localStorage.theme == 'dark') {
+//         htmlClasses.remove('dark');
+//         localStorage.removeItem('theme');
+//     } else {
+//         htmlClasses.add('dark');
+//         localStorage.theme = 'dark';
+//     }
+// });
 
 /***/ }),
 

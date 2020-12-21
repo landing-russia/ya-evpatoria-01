@@ -21282,25 +21282,14 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // DARK MODE
 
-if (localStorage.theme === 'dark' || !('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+
+if (localStorage.theme === 'dark') {
   document.querySelector('html').classList.add('dark');
 } else {
   document.querySelector('html').classList.remove('dark');
 }
-
-document.getElementById('switchTheme').addEventListener('click', function () {
-  var htmlClasses = document.querySelector('html').classList;
-
-  if (localStorage.theme == 'dark') {
-    htmlClasses.remove('dark');
-    localStorage.removeItem('theme');
-  } else {
-    htmlClasses.add('dark');
-    localStorage.theme = 'dark';
-  }
-});
 
 /***/ }),
 

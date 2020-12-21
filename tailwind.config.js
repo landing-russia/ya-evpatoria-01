@@ -13,12 +13,13 @@ module.exports = {
   theme: {
     extend: {
         fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            display: ["Inter", "sans-serif"],
-            body: ["Inter", "sans-serif"],
+            sans: ["Montserrat", "sans-serif"],
+            display: ["Montserrat", "sans-serif"],
+            body: ["Montserrat", "sans-serif"],
         },
         colors: {
-          amber: colors.amber
+          amber: colors.amber,
+          gray: colors.blueGray
         },
         spacing: {
           '18': '4.5rem',

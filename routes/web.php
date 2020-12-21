@@ -10,7 +10,6 @@ Route::get('/foo', function () {
     return view('welcome2');
 });
 
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

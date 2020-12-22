@@ -40,7 +40,7 @@
                     </div>
                     <div class="hidden md:ml-6 md:flex md:items-center lg:ml-12">
                         <a href="#"
-                            class="ml-3 block rounded-full font-semibold text-white bg-amber-600 dark:bg-amber-700 text-sm px-3 py-1 lg:text-base lg:px-4 lg:py-2 transition duration-150 ease-in-out">
+                            class="ml-3 block rounded-full font-semibold text-white bg-amber-500 dark:bg-amber-600 text-sm px-3 py-1 lg:text-base lg:px-4 lg:py-2 transition duration-150 ease-in-out">
                             Афиша
                         </a>
                         <a href="#"
@@ -108,9 +108,9 @@
                             <div
                                 class="py-1 rounded-md bg-white dark:bg-gray-800 border border-gray-200  dark:border-gray-700 shadow-xs">
                                 <a href="#"
-                                    class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Профиль</a>
+                                    class="block px-4 py-2 text-sm font-medium leading-5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Профиль</a>
                                 <a href="#"
-                                    class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Выйти</a>
+                                    class="block px-4 py-2 text-sm font-medium leading-5 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Выйти</a>
                             </div>
                         </div>
                     </div>
@@ -130,6 +130,15 @@
             </div>
         </div>
     </nav>
+    <div class="mx-auto mt-8 space-x-5 flex items-center justify-center">
+        <a class="px-4 py-1 bg-amber-500 dark:bg-amber-600 text-white rounded-full font-semibold" href="!#">Кино</a>
+        <a class="px-4 py-1 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-full font-semibold"
+            href="!#">Театр</a>
+        <a class="px-4 py-1 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-full font-semibold"
+            href="!#">Развлечения</a>
+        <a class="px-4 py-1 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-full font-semibold"
+            href="!#">Акции</a>
+    </div>
 </body>
 
 </html>

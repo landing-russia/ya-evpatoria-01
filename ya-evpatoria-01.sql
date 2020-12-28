@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Дек 25 2020 г., 12:21
+-- Время создания: Дек 28 2020 г., 14:46
 -- Версия сервера: 5.7.24
 -- Версия PHP: 7.4.8
 
@@ -68,7 +68,13 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (18, 3, 'created_at', 'timestamp', 'Дата создания', 0, 0, 0, 0, 0, 0, NULL, 3),
 (19, 3, 'updated_at', 'timestamp', 'Дата обновления', 0, 0, 0, 0, 0, 0, NULL, 4),
 (20, 3, 'display_name', 'text', 'Отображаемое имя', 1, 1, 1, 1, 1, 1, NULL, 5),
-(21, 1, 'role_id', 'text', 'Роль', 1, 1, 1, 1, 1, 1, NULL, 9);
+(21, 1, 'role_id', 'text', 'Роль', 1, 1, 1, 1, 1, 1, NULL, 9),
+(22, 5, 'id', 'hidden', 'Id', 1, 1, 0, 0, 0, 0, '{}', 1),
+(23, 5, 'title', 'text', 'Название', 1, 1, 1, 1, 1, 1, '{}', 2),
+(24, 5, 'description', 'rich_text_box', 'Описание', 1, 1, 1, 1, 1, 1, '{}', 3),
+(25, 5, 'author', 'text', 'Гид', 1, 1, 1, 1, 1, 1, '{}', 4),
+(26, 5, 'created_at', 'timestamp', 'Добавлена', 0, 1, 1, 1, 0, 1, '{}', 5),
+(27, 5, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6);
 
 -- --------------------------------------------------------
 
@@ -101,7 +107,23 @@ CREATE TABLE `data_types` (
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
 (1, 'users', 'users', 'Пользователь', 'Пользователи', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', '', 1, 0, NULL, '2020-12-16 08:39:39', '2020-12-16 08:39:39'),
 (2, 'menus', 'menus', 'Меню', 'Меню', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2020-12-16 08:39:39', '2020-12-16 08:39:39'),
-(3, 'roles', 'roles', 'Роль', 'Роли', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2020-12-16 08:39:39', '2020-12-16 08:39:39');
+(3, 'roles', 'roles', 'Роль', 'Роли', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2020-12-16 08:39:39', '2020-12-16 08:39:39'),
+(5, 'excursions', 'excursions', 'Экскурсии', 'Экскурсии', 'voyager-compass', 'App\\Models\\Excursion', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-12-28 07:03:47', '2020-12-28 07:07:36');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `excursions`
+--
+
+CREATE TABLE `excursions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -168,15 +190,16 @@ CREATE TABLE `menu_items` (
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Панель управления', '', '_self', 'voyager-boat', NULL, NULL, 1, '2020-12-16 08:39:39', '2020-12-16 08:39:39', 'voyager.dashboard', NULL),
 (2, 1, 'Медиа', '', '_self', 'voyager-images', NULL, NULL, 5, '2020-12-16 08:39:39', '2020-12-16 08:39:39', 'voyager.media.index', NULL),
-(3, 1, 'Пользователи', '', '_self', 'voyager-person', NULL, NULL, 3, '2020-12-16 08:39:39', '2020-12-16 08:39:39', 'voyager.users.index', NULL),
-(4, 1, 'Роли', '', '_self', 'voyager-lock', NULL, NULL, 2, '2020-12-16 08:39:39', '2020-12-16 08:39:39', 'voyager.roles.index', NULL),
-(5, 1, 'Инструменты', '', '_self', 'voyager-tools', NULL, NULL, 9, '2020-12-16 08:39:39', '2020-12-16 08:39:39', NULL, NULL),
-(6, 1, 'Конструктор Меню', '', '_self', 'voyager-list', NULL, 5, 10, '2020-12-16 08:39:39', '2020-12-16 08:39:39', 'voyager.menus.index', NULL),
-(7, 1, 'База данных', '', '_self', 'voyager-data', NULL, 5, 11, '2020-12-16 08:39:39', '2020-12-16 08:39:39', 'voyager.database.index', NULL),
-(8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 12, '2020-12-16 08:39:39', '2020-12-16 08:39:39', 'voyager.compass.index', NULL),
-(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 13, '2020-12-16 08:39:39', '2020-12-16 08:39:39', 'voyager.bread.index', NULL),
-(10, 1, 'Настройки', '', '_self', 'voyager-settings', NULL, NULL, 14, '2020-12-16 08:39:39', '2020-12-16 08:39:39', 'voyager.settings.index', NULL),
-(11, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, NULL, 13, '2020-12-16 08:39:39', '2020-12-16 08:39:39', 'voyager.hooks', NULL);
+(3, 1, 'Пользователи', '', '_self', 'voyager-person', NULL, NULL, 4, '2020-12-16 08:39:39', '2020-12-28 07:05:16', 'voyager.users.index', NULL),
+(4, 1, 'Роли', '', '_self', 'voyager-lock', NULL, NULL, 3, '2020-12-16 08:39:39', '2020-12-28 07:05:28', 'voyager.roles.index', NULL),
+(5, 1, 'Инструменты', '', '_self', 'voyager-tools', NULL, NULL, 6, '2020-12-16 08:39:39', '2020-12-28 07:05:16', NULL, NULL),
+(6, 1, 'Конструктор Меню', '', '_self', 'voyager-list', NULL, 5, 1, '2020-12-16 08:39:39', '2020-12-28 07:05:16', 'voyager.menus.index', NULL),
+(7, 1, 'База данных', '', '_self', 'voyager-data', NULL, 5, 2, '2020-12-16 08:39:39', '2020-12-28 07:05:16', 'voyager.database.index', NULL),
+(8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2020-12-16 08:39:39', '2020-12-28 07:05:16', 'voyager.compass.index', NULL),
+(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2020-12-16 08:39:39', '2020-12-28 07:05:16', 'voyager.bread.index', NULL),
+(10, 1, 'Настройки', '', '_self', 'voyager-settings', NULL, NULL, 8, '2020-12-16 08:39:39', '2020-12-28 07:05:16', 'voyager.settings.index', NULL),
+(11, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, NULL, 7, '2020-12-16 08:39:39', '2020-12-28 07:05:16', 'voyager.hooks', NULL),
+(12, 1, 'Экскурсии', '', '_self', 'voyager-compass', NULL, NULL, 2, '2020-12-28 07:03:47', '2020-12-28 07:05:28', 'voyager.excursions.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -275,7 +298,12 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (23, 'edit_settings', 'settings', '2020-12-16 08:39:39', '2020-12-16 08:39:39'),
 (24, 'add_settings', 'settings', '2020-12-16 08:39:39', '2020-12-16 08:39:39'),
 (25, 'delete_settings', 'settings', '2020-12-16 08:39:39', '2020-12-16 08:39:39'),
-(26, 'browse_hooks', NULL, '2020-12-16 08:39:39', '2020-12-16 08:39:39');
+(26, 'browse_hooks', NULL, '2020-12-16 08:39:39', '2020-12-16 08:39:39'),
+(27, 'browse_excursions', 'excursions', '2020-12-28 07:03:47', '2020-12-28 07:03:47'),
+(28, 'read_excursions', 'excursions', '2020-12-28 07:03:47', '2020-12-28 07:03:47'),
+(29, 'edit_excursions', 'excursions', '2020-12-28 07:03:47', '2020-12-28 07:03:47'),
+(30, 'add_excursions', 'excursions', '2020-12-28 07:03:47', '2020-12-28 07:03:47'),
+(31, 'delete_excursions', 'excursions', '2020-12-28 07:03:47', '2020-12-28 07:03:47');
 
 -- --------------------------------------------------------
 
@@ -318,7 +346,12 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (23, 1),
 (24, 1),
 (25, 1),
-(26, 1);
+(26, 1),
+(27, 1),
+(28, 1),
+(29, 1),
+(30, 1),
+(31, 1);
 
 -- --------------------------------------------------------
 
@@ -450,6 +483,12 @@ ALTER TABLE `data_types`
   ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
 
 --
+-- Индексы таблицы `excursions`
+--
+ALTER TABLE `excursions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -542,13 +581,19 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT для таблицы `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT для таблицы `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `excursions`
+--
+ALTER TABLE `excursions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
@@ -566,7 +611,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT для таблицы `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
@@ -578,7 +623,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT для таблицы `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`

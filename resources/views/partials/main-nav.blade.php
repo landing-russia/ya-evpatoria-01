@@ -34,12 +34,12 @@
                         class="ml-3 block rounded-md font-semibold text-sm px-3 py-1 lg:text-lg lg:px-3 lg:py-2 {{ (request()->is('excursions')) ? 'text-gray-900 bg-amber-400 dark:bg-amber-600  dark:text-white' : 'text-gray-600 dark:text-gray-500 hover:bg-gray-100 dark:hover:text-gray-300 hover:text-gray-900 dark:hover:bg-gray-800' }} transition duration-150 ease-in-out">
                         Экскурсии
                     </a>
-                    <a href="#"
-                        class="ml-3 block rounded-md font-semibold text-gray-600 dark:text-gray-500 hover:bg-gray-100 dark:hover:text-gray-300 hover:text-gray-900 dark:hover:bg-gray-800 text-sm px-3 py-1 lg:text-lg lg:px-3 lg:py-2 transition duration-150 ease-in-out">
+                    <a href="/foods"
+                        class="ml-3 block rounded-md font-semibold text-sm px-3 py-1 lg:text-lg lg:px-3 lg:py-2 {{ (request()->is('foods')) ? 'text-gray-900 bg-amber-400 dark:bg-amber-600  dark:text-white' : 'text-gray-600 dark:text-gray-500 hover:bg-gray-100 dark:hover:text-gray-300 hover:text-gray-900 dark:hover:bg-gray-800' }} transition duration-150 ease-in-out">
                         Питание
                     </a>
-                    <a href="#"
-                        class="ml-3 block rounded-md font-semibold text-gray-600 dark:text-gray-500 hover:bg-gray-100 dark:hover:text-gray-300 hover:text-gray-900 dark:hover:bg-gray-800 text-sm px-3 py-1 lg:text-lg lg:px-3 lg:py-2 transition duration-150 ease-in-out">
+                    <a href="/residences"
+                        class="ml-3 block rounded-md font-semibold text-sm px-3 py-1 lg:text-lg lg:px-3 lg:py-2 {{ (request()->is('residences')) ? 'text-gray-900 bg-amber-400 dark:bg-amber-600  dark:text-white' : 'text-gray-600 dark:text-gray-500 hover:bg-gray-100 dark:hover:text-gray-300 hover:text-gray-900 dark:hover:bg-gray-800' }} transition duration-150 ease-in-out">
                         Проживание
                     </a>
                 </div>
